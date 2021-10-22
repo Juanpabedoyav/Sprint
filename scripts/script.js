@@ -1,4 +1,4 @@
-// coneccion de API
+// conecct de API
 const URL = 'https://raw.githubusercontent.com/jennymontoya1001/endpointheroesjson/main/heroes.json'; 
 const obtenerData = async ()=>{
 const res = await fetch(URL);

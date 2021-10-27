@@ -62,7 +62,7 @@ body {
     margin-top: 20px;
     display: block;
     width: 99%;
-    border-radius: 8px;
+    /* border-radius: 8px; */
     font-family: 'Inter', sans-serif;
 
     font-weight: 800;

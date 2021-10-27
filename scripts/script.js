@@ -22,7 +22,7 @@ btnSearch.addEventListener('click', async () =>{
     const data = await obtenerData();
     let letterSearch = search.substring(0, 4);
     let getSearch = data.filter(movie =>(movie.superhero.toLowerCase() === search.toLowerCase()) || (movie.publisher.toLowerCase() === search.toLowerCase()));
-    // console.log(getSearch);
+    console.log(data);
         // console.log(JSON.parse(getSearch));
 
     //  data.forEach(movie => {

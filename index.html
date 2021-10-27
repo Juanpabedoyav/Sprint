@@ -12,32 +12,60 @@
 <body>
     <!-- barra de busqueda -->
     <header class="header">
-        <nav class="nav-bar">
-            <div class="logo">
-                <img src="./img/logo-blockBuster.png">
+
+
+        <!-- new navigation bar -->
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item">
+                    <img src="img/logo-blockBuster.png">
+                </a>
+
+                <a role="button" class="navbar-burger " aria-label="menu" aria-expanded="false">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
             </div>
-            <div class = "options"> 
-            <a id="todas" href="#">Todas</a>
-            <a id="mas-valor" href="#">Más valoradas</a>
-            <a id="menos-valor" href="#">Menos valoradas</a>
+
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item">
+                        Todas
+                    </a>
+
+                    <a class="navbar-item">
+                        Más valoradas
+                    </a>
+
+                    <a class="navbar-item">
+                        Menos valoradas
+                    </a>
+                    <!-- <div class="navbar-item "> -->
+                        <div class="box-search">
+                            <input id="movie-search" type="text" placeholder="Busqueda tu pelicula favorita">
+                            <button id="btnSearch" type="submit"><svg width="20" height="20" viewBox="0 0 20 20"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M7 0C3.14585 0 0 3.14585 0 7C0 10.8541 3.14585 14 7 14C8.748 14 10.345 13.348 11.5742 12.2812L12 12.707V14L18 20L20 18L14 12H12.707L12.2812 11.5742C13.348 10.345 14 8.748 14 7C14 3.14585 10.8541 0 7 0ZM7 2C9.77327 2 12 4.22673 12 7C12 9.77327 9.77327 12 7 12C4.22673 12 2 9.77327 2 7C2 4.22673 4.22673 2 7 2Z"
+                                        fill="black" />
+                                </svg>
+                            </button>
+                        </div>
+
+                    <!-- </div> -->
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <a class="button " href="signup.html">
+
+                                <strong>Sign Up</strong>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- caja de barra de busqueda -->
-            <div class="box-search">
-                <input id="movie-search" type="text" placeholder="Busqueda tu pelicula favorita">
-                <button id="btnSearch" type="submit"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M7 0C3.14585 0 0 3.14585 0 7C0 10.8541 3.14585 14 7 14C8.748 14 10.345 13.348 11.5742 12.2812L12 12.707V14L18 20L20 18L14 12H12.707L12.2812 11.5742C13.348 10.345 14 8.748 14 7C14 3.14585 10.8541 0 7 0ZM7 2C9.77327 2 12 4.22673 12 7C12 9.77327 9.77327 12 7 12C4.22673 12 2 9.77327 2 7C2 4.22673 4.22673 2 7 2Z"
-                            fill="black" />
-                    </svg>
-                </button>
-            </div>
-            <!-- fin caja barra de busqueda -->
         </nav>
-        <div class="sign-up">
-           
-            <a href="signup.html">Crear cuenta</a>
-        </div>
     </header>
     <main id="main"></main>
 

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/signup.css">
+    <title>Registro de Block Master</title>
+</head>
+
+<body>
+        <figure class="image">
+            <img src="img/logo-blockBuster.png">
+        </figure>
+        <div class="container">
+            <form id="form" class="form">
+                <h1>Crear cuenta</h1>
+
+                <div class="field">
+                    <label for="name" class="label">Nombre</label>
+                    <p class="control has-icons-left">
+                        <input id="name" class="input is-normal" type="text" placeholder="Ingresa tu nombre" required>
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                    </p>
+                </div>
+                <div class="field">
+                    <label for="userName" class="label">Apodo</label>
+                    <p class="control has-icons-left">
+                        <input id="userName" class="input is-normal" type="text" placeholder="Ingresa tu apodo"
+                            required>
+                        <span class="icon  is-left">
+                            <i class="fas fa-at"></i>
+                        </span>
+                    </p>
+                </div>
+                <div class="field">
+                    <label for="email" class="label">Correo eletrónico</label>
+                    <p class="control has-icons-left">
+                        <input id="email" class="input is-normal" type="email"
+                            placeholder="Ingresa tu correo eletrónico" required>
+                        <span class="icon is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                </div>
+                </p>
+                <div class="field">
+                    <label for="password" class="label">Contraseña</label>
+                    <p class="control has-icons-left">
+                        <input id="password" class="input " type="password" placeholder="Crear contraseña" required>
+                        <span class="icon is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </p>
+                </div>
+                <p class="control">
+                    <button id="btnSignup" class="button is-normal type=" submit">Crea tu cuenta en Block
+                        Master</button>
+                </p>
+                <p class="p">¿Ya tienes una cuenta ? <a id="login" class="link" href="">Ver cuenta registrada</a></p>
+                <p class="back">
+                    <a id="back" class="link" href="index.html">Volver</a>
+                </p>
+            </form>
+        </div>
+
+    <script src="/scripts/signup.js"></script>
+    <script src="https://kit.fontawesome.com/2bfea8c13e.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

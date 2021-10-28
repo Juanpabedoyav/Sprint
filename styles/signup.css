@@ -114,3 +114,12 @@ body {
     color: rgba(0, 0, 0, 0.4);
 
 }
+/* style busqued de perfil */
+.field--email{
+    margin-top: 0px;
+    /* border: 1px solid red; */
+}
+.verificar-email{
+    margin-bottom:20px;
+}
+

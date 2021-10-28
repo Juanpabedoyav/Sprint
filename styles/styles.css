@@ -132,3 +132,8 @@ img[src="img/logo-blockBuster.png"]{
     border: 1px solid red;
 
 }
+/* titulos */
+.title{
+    font-size: 48px;
+    color:#FFFFFE;
+}

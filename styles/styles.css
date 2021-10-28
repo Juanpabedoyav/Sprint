@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+
+
+:root{
+    --background-color: #0F0E17;
+    --text-hover:#FED941; 
+    --text-input:#A7A9BE;
+}
+html{
+    background-color: var(--background-color);
+
+}
+
+.navbar{
+    margin-top: 20px;
+    height: 12vh;
+    background-color: var(--background-color);
+}
+a.navbar-item{ 
+    font-family: 'Inter', sans-serif;   
+    /* margin-left: 48px; */
+    
+    font-size: 1rem;
+    font-weight: 700;
+    color:white;
+    text-decoration: none;
+    /* pointer-events: none; */
+}
+a.navbar-item:hover{
+color: var(--text-hover);
+background-color: transparent;
+text-decoration: underline;
+} 
+.button{
+    display: block;
+    width: 200px;
+    background-color: var(--text-hover);
+    border:none;
+}
+.button:hover{
+    display: block;
+    width: 200px;
+    background-color:var(--background-color);
+    color:var(--text-hover);
+    border:none;
+    border:1px solid var(--text-hover);
+}
+img[src="img/logo-blockBuster.png"]{
+    width: 150px;
+    height:auto;
+}
+
+
+
+
+
+
+
+.box-search{
+    width: 530px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 80px;
+}
+.box-search button{
+    background-color: var(--text-hover);
+    width: 72px;
+    height: auto;
+    border-radius: 0px 8px 8px 0px;
+    border:none;
+
+    cursor: pointer;
+}
+.box-search input{
+    width: 458px;
+    height: 22px;
+    font-size: 1rem;
+    color: var(--text-input);
+    padding: 11px 0px 11px 12px;
+    border-radius: 8px 0px 0px 8px;
+    border:none;
+    outline:none;
+}

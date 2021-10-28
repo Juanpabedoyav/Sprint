@@ -1,0 +1,116 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+
+html {
+    background-color: #0F0E17;
+}
+
+body {
+    height: 100vh;
+}
+
+.container {
+    /* border:1px solid red; */
+    width: 500px;
+    max-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    /* box-shadow: 0px 0px 6px 0px #a7a7a7; */
+    margin-bottom: 20px;
+    border-radius: 8px;
+
+}
+
+ .form {
+    padding: 20px 30px;
+    margin-top: 20px;
+    /* border:1px solid red; */
+
+} 
+
+.form h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: white;
+}
+
+.image {
+
+    margin-bottom: 10px;
+    /* border:1px solid red; */
+}
+
+.image img {
+    width: 120px;
+    height: 90px;
+    margin: 0px auto;
+    margin-top: 20px;
+}
+
+.label {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: white;
+}
+
+.button {
+    background-color: #FED941;
+    border: none;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: block;
+    width: 99%;
+    /* border-radius: 8px; */
+    font-family: 'Inter', sans-serif;
+
+    font-weight: 800;
+    color: black;
+    /* border:1px solid red; */
+}
+
+.button:hover {
+    background-color: #0F0E17;
+    color: #FED941;
+    border: 1px solid #FED941;
+}
+
+.link {
+    color: #FED941;
+    font-size: 1rem;
+    margin-left: 5px;
+}
+
+.link:hover {
+    color: #FED941;
+    text-decoration: underline;
+    transition: 0.1s;
+
+}
+
+.p {
+    color: white;
+    margin-top: 20px;
+    width: 100%;
+    text-align: left;
+    /* margin */
+    /* border:1px solid red; */
+
+}
+
+.back {
+    /* margin-left: 40px; */
+    margin-top: 5px
+}
+
+.input::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: 600;
+
+}
+
+.control i {
+    color: rgba(0, 0, 0, 0.4);
+
+}

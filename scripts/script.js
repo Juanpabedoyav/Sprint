@@ -1,3 +1,9 @@
+const API_URL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=3fd2be6f0c70a2a598f084ddfb75487c&page=1'
+const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
+const SEARCH_URL = 'http://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query="'
+
+
+
 const url = 'https://raw.githubusercontent.com/jennymontoya1001/endpointheroesjson/main/heroes.json';
 
 const principal = document.getElementById('principal');
@@ -25,15 +31,30 @@ const showMovies = async() => {
     const info = document.createElement('div');
     info.classList.add('card');
         info.innerHTML = `
-        
-          <div class="card-content ">
-            <img src="${image}" alt=>
+        <div class="card-content ">
+       <a id="item"href="#"> <img src="${image}" alt=></a>
           </div>
-        
       `
-      principal.appendChild(info);
+principal.appendChild(info);
 
-    });
 
+// modal
+// const item = document.querySelector('#item');
+// const modalBackground = document.querySelector('.modal-background');
+// const modal = document.querySelector('.modal');
+
+// item.addEventListener('click', ()=>{
+//     modal.classList.add('is-active');
+// console.log(item);
+
+// })
+
+
+
+
+
+ });
 };
 showMovies();
+
+

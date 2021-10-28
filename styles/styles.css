@@ -10,7 +10,7 @@ body{
 }
 .container{
     padding : 0;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 .card-content img{
     width :100%;
@@ -41,10 +41,15 @@ body{
 }
 .section{
 
-    height: 550px;
-    border: 1px solid red;
+    height: 350px;
+    /* border: 1px solid red; */
 
 }
 .breadcrumb ol, .breadcrumb ul {
-align-items: center;
+/* border: 1px solid red; */
+}
+.modal{
+    height: 50px;
+    border: 1px solid red;
+
 }

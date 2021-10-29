@@ -18,6 +18,8 @@ form.addEventListener('submit', async (e) => {
     let userName = document.getElementById('userName').value;
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
+    // let id = document.getElementById('id').value;
+
 
     // Send data to signup.json add user
     await fetch(url, {
@@ -42,7 +44,7 @@ form.addEventListener('submit', async (e) => {
     };
 });
 
-// Event login
+// Event login verificacion de usuario y edicion
 login.addEventListener('click', (e) => {
     e.preventDefault();
     // let fieldEmail = document.querySelector('.field--email');
@@ -67,19 +69,18 @@ login.addEventListener('click', (e) => {
      </p>
     
     `
-    const btnVerificar= document.getElementById('btnVerificar');
-    btnVerificar.addEventListener('click', async()=>{
-    
+    const btnVerificar = document.getElementById('btnVerificar');
+    btnVerificar.addEventListener('click', async () => {
         let inputEmail = document.querySelector('input[type="email"]').value;
 
-      const res = await fetch (url);
-      const data = await res.json();
-      
-      let user = data.find(usuario => (usuario.email == inputEmail))
-        const{name, userName, email} = user;
 
+        const res = await fetch(url);
+        const data = await res.json();
 
-         if(user = true){
+        let user = data.find(usuario => (usuario.email == inputEmail))
+        const {id, name,userName,email} = user;
+       
+        if (user = true) {
             const field = document.querySelector('.field');
             field.innerHTML = "";
             field.innerHTML += `
@@ -118,30 +119,51 @@ login.addEventListener('click', (e) => {
         <p class="control">
                     <button id="btnSave" class="button is-normal" type="botton">Guardar Cambios</button>
                 </p>
+              
             `;
-          
-            
+
             let inputEmail = document.getElementById('email').readOnly = true;
             let inputName = document.getElementById('name').readOnly = true;
             let inputApodo = document.getElementById('userName').readOnly = true;
 
 
-            document.querySelector('input[type="email"]').value= email;
-            document.getElementById('name').value= name;
-            document.getElementById('userName').value= userName;
+            document.querySelector('input[type="email"]').value = email;
+            document.getElementById('name').value = name;
+            document.getElementById('userName').value = userName;
         }
         // changes the profile  PUT AND DELETE
-        const btnEdit = document.getElementById('btnEdit');        
-        btnEdit.addEventListener('click',()=>{
+        const btnEdit = document.getElementById('btnEdit');
+        btnEdit.addEventListener('click', () => {
             let inputName = document.getElementById('name').readOnly = false;
             let inputApodo = document.getElementById('userName').readOnly = false;
+           
         });
-        
-        
-        
-        
         const btnSave = document.getElementById('btnSave');
-
-
-    })  
+        btnSave.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const res = await fetch(url)
+            const data = await res.json();
+            const{id, name, userName, email} = data;
+            let idFiltro= data.find(element=> (element.id)) //se filtra el id
+            // console.log(idFiltro);
+    
+            // new valores a guardar en base de datos
+            let inputName = document.getElementById('name').value;
+            let inputApodo = document.getElementById('userName').value;
+            let inputEmail = document.getElementById('email').value;
+            let inputPassword = document.getElementById('password');
+            await fetch(url+"/"+idFiltro.id, {  //se ejecuta enpoint de id filtrado
+                method: "PUT", 
+                body: JSON.stringify({
+                    name: `${inputName}`,
+                    userName: `${inputApodo}`,
+                    email: `${inputEmail}`,
+                    password:`${inputPassword}`
+                }),
+                headers: {
+                    "Content-Type": "application/json; charset=UTF-8"
+                },
+            })
+        })
+    });
 })

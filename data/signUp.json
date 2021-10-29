@@ -2,17 +2,17 @@
   "newUser": [
     {
       "name": "Juan Pablo Bedoya",
-      "userName": "pepito el fumon",
-      "email": "talcual_14@hotmail.com",
-      "password": "werwewerw",
-      "id": "ITMQ6_h"
+      "userName": "Juanpa",
+      "email": "milo@gmail.com",
+      "password": "null",
+      "id": 1
     },
     {
-      "name": "Juan Pablo Bedoya",
+      "name": "Pedro Javier",
       "userName": "pepito el fumon",
-      "email": "bedoyavascojuanpablo@gmail.com",
-      "password": "sagsgs",
-      "id": "GEvpzpz"
+      "email": "milo@gmail.com",
+      "password": "123456",
+      "id": 2
     }
   ]
 }

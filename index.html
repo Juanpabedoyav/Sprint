@@ -10,86 +10,130 @@
 </head>
 
 <body>
+
   <header class="header">
     <!-- new navigation bar -->
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <a class="navbar-item">
+    <div class="container">
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a href="index.html">
           <img src="img/logo-blockBuster.png">
-        </a>
-
-        <a role="button" class="navbar-burger " aria-label="menu" aria-expanded="false">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
-
-      <div class="navbar-menu">
-        <div class="navbar-start">
-          <a id="todas"class="navbar-item">
-            Todas
           </a>
 
-          <a id="masV" class="navbar-item">
-            Más valoradas
+          <a role="button" class="navbar-burger " aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
           </a>
+        </div>
 
-          <a id="menosV" class="navbar-item">
-            Menos valoradas
-          </a>
-          <!-- barra de busqueda -->
-          <div class="box-search">
-            <input id="movie-search" type="text" placeholder="Busqueda tu pelicula favorita">
-            <button id="btnSearch" type="submit"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M7 0C3.14585 0 0 3.14585 0 7C0 10.8541 3.14585 14 7 14C8.748 14 10.345 13.348 11.5742 12.2812L12 12.707V14L18 20L20 18L14 12H12.707L12.2812 11.5742C13.348 10.345 14 8.748 14 7C14 3.14585 10.8541 0 7 0ZM7 2C9.77327 2 12 4.22673 12 7C12 9.77327 9.77327 12 7 12C4.22673 12 2 9.77327 2 7C2 4.22673 4.22673 2 7 2Z"
-                  fill="black" />
-              </svg>
-            </button>
-          </div>
+        <div class="navbar-menu">
+          <div class="navbar-start">
+            <a id="todas" class="navbar-item">
+              Todas
+            </a>
 
-          <!-- </div> -->
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <a class="button " href="signup.html">
+            <a id="masV" class="navbar-item">
+              Más valoradas
+            </a>
 
-                <strong>Registrarme</strong>
-              </a>
+            <a id="menosV" class="navbar-item">
+              Menos valoradas
+            </a>
+            <!-- barra de busqueda -->
+            <div class="box-search">
+              <input id="movie-search" type="text" placeholder="Busca tu pelicula favorita">
+              <button id="btnSearch" type="submit"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M7 0C3.14585 0 0 3.14585 0 7C0 10.8541 3.14585 14 7 14C8.748 14 10.345 13.348 11.5742 12.2812L12 12.707V14L18 20L20 18L14 12H12.707L12.2812 11.5742C13.348 10.345 14 8.748 14 7C14 3.14585 10.8541 0 7 0ZM7 2C9.77327 2 12 4.22673 12 7C12 9.77327 9.77327 12 7 12C4.22673 12 2 9.77327 2 7C2 4.22673 4.22673 2 7 2Z"
+                    fill="black" />
+                </svg>
+              </button>
+            </div>
 
+            <div class="navbar-end">
+              <div class="navbar-item">
+                <a class="button " href="signup.html">
+
+                  <strong>Registrarme</strong>
+                </a>
+
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </header>
   <section class="section ">
+    <!-- barra de navegacion -->
     <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
       <ul>
-        <li><a href="#">o</a></li>
-        <li><a href="#">o</a></li>
-        <li><a href="#">o</a></li>
+        <li><a href="#"><p ></p></a></li>
+        <li><a href="#"><p ></p></a></li>
+        <li><a href="#"><p ></p></a></li>
         <!-- <li class="is-active"><a href="#" aria-current="page">Breadcrumb</a></li> -->
       </ul>
     </nav>
   </section>
+
+
+  <!-- modal agregar pelicual-->
+  <div class="container">
+
+    <button id="add" class="button" type="button">Agregar pelicula
+      <div class="modal">
+
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <div id="crud">
+            <!-- formulario de registro -->
+            <form class="form">
+              <div class="field">
+                <label class="label">Nombre de pelicula</label>
+                <div class="control">
+                  <input id="nombre" class="input" type="text" placeholder="Ingresa el nombre de la pelicula">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Actores</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="e.g Alex Smith">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Personajes</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="e.g Alex Smith">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Descripción</label>
+                <div class="control">
+                  <input class="textarea" type="text" row="2" placeholder="Escribe la sinopsis">
+                </div>
+              </div>
+              <a class="button" href="">Agregar</a>
+              <a class="button" href="">Eliminar</a>
+              <a class="button" href="">Editar</a>
+              <a class="button" href="">Editar</a>
+            </form>
+          </div>
+
+        </div>
+        <button class="modal-close   " aria-label="close"></button>
+    </button>
+  </div>
+  </div>
+
 
   <div id="navFiltro" class="container">
     <p class="title">Todas las peliculas</p>
     <!-- principal es template -->
     <div id="principal"></div>
 
-    <!-- modal -->
-    <!-- <div class="modal">
-      <div class="modal-background"></div>
-      <div class="modal-content">
-        <h1>Pelicula</h1>
-         Any other Bulma elements you want 
 
-      </div>
-      <button class="modal-close is-large  " aria-label="close"></button>
-    </div> -->
   </div>
 
   <script src="scripts/script.js"></script>

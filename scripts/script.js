@@ -50,9 +50,6 @@ const btnSearch = document.getElementById("btnSearch");
 
 
 
-
-
-
 function showMovies(movie) {
   movie.forEach((movies) => {
     const {
@@ -94,8 +91,6 @@ menosV.addEventListener("click", async () => {
     `
     console.log(filtro);
 })
-    
-
 masV.addEventListener("click", async () => {
     const res = await fetch(API_URL);
     const data = await res.json();
@@ -112,7 +107,31 @@ masV.addEventListener("click", async () => {
     `
     console.log(filtro);
 })    
-
-
-
 getData(API_URL);
+
+// CRUD agregar peliculas
+const UrlAdd = 'http://localhost:4001/newMovie'
+
+const add = document.getElementById('add');
+const modal = document.querySelector('.modal');
+const bG = document.getElementById('mod');
+
+add.addEventListener('click', (e)=>{
+  e.preventDefault();
+  modal.classList.add('is-active');
+})
+bG.addEventListener('click',(e)=>{
+  e.preventDefault();
+  
+  modal.classList.remove('is-active');
+
+})
+
+
+
+
+
+
+
+
+

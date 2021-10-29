@@ -1,9 +1,9 @@
 {
   "newUser": [
     {
-      "name": "Juan Pablo Bedoya",
-      "userName": "Juanpa",
-      "email": "milo@gmail.com",
+      "name": "opioi ",
+      "userName": "kllkk",
+      "email": "bedoyavascojuanpablo@gmail.com",
       "password": "null",
       "id": 1
     },
@@ -13,6 +13,20 @@
       "email": "milo@gmail.com",
       "password": "123456",
       "id": 2
+    },
+    {
+      "name": "Juan Pablo Bedoya",
+      "userName": "eldon",
+      "email": "bedoyavascojuanpablo@gmail.com",
+      "password": "123242134",
+      "id": 3
+    },
+    {
+      "name": "Juan Pablo Bedoya",
+      "userName": "pepito el fumon",
+      "email": "inversionesjbv@gmail.com",
+      "password": "kn,n,,n,m",
+      "id": 4
     }
   ]
 }

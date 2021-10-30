@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
   <title>Block Master</title>
 </head>
 
@@ -21,9 +22,9 @@
           </a>
 
           <a role="button" class="navbar-burger " aria-label="menu" aria-expanded="false">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
+            <span aria-hidden=""></span>
+            <span aria-hidden=""></span>
+            <span aria-hidden=""></span>
           </a>
         </div>
 
@@ -43,7 +44,7 @@
             <!-- barra de busqueda -->
             <div class="box-search">
               <input id="movie-search" type="text" placeholder="Busca tu pelicula favorita">
-              <button id="btnSearch" type="submit"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+              <button id="btnSearch" type="button"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M7 0C3.14585 0 0 3.14585 0 7C0 10.8541 3.14585 14 7 14C8.748 14 10.345 13.348 11.5742 12.2812L12 12.707V14L18 20L20 18L14 12H12.707L12.2812 11.5742C13.348 10.345 14 8.748 14 7C14 3.14585 10.8541 0 7 0ZM7 2C9.77327 2 12 4.22673 12 7C12 9.77327 9.77327 12 7 12C4.22673 12 2 9.77327 2 7C2 4.22673 4.22673 2 7 2Z"
@@ -76,6 +77,13 @@
         <!-- <li class="is-active"><a href="#" aria-current="page">Breadcrumb</a></li> -->
       </ul>
     </nav>
+    
+    <a class="button button--ahora" href="signup.html">
+      <strong>ver ahora</strong>
+    </a>
+    <a class="button button--despues " href="signup.html">
+      <strong>ver después</strong>
+    </a>
   </section>
 
 
@@ -128,13 +136,15 @@
   </div>
 
 
-  <div id="navFiltro" class="container">
+  <div id="filtroMovie" class="container">
     <p class="title">Todas las peliculas</p>
     <!-- principal es template -->
-    <div id="principal"></div>
-
-
   </div>
+  <div id="cartel"class="container">  
+    <div id="principal"></div>
+  </div>
+
+  
 
   <script src="scripts/script.js"></script>
 </body>

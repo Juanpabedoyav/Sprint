@@ -1,12 +1,14 @@
 // conecct de API
 const API_URL =
-  "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=3fd2be6f0c70a2a598f084ddfb75487c&page=1";
+  "https://api.themoviedb.org/3/discover/movie?sort_by=vote_average&api_key=3fd2be6f0c70a2a598f084ddfb75487c&page=1";
 const IMG_PATH = "https://image.tmdb.org/t/p/w1280";
 const SEARCH_URL =
-  'http://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query="';
-
+  'http://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query=';
+ 
+// HTML DOM
 const principal = document.getElementById("principal");
-
+const filtroMovie = document.getElementById('filtroMovie');
+const cartel = document.querySelector('#cartel');
 // get data
 const getData = async (url) => {
   const res = await fetch(url);
@@ -17,41 +19,38 @@ const getData = async (url) => {
 
 // bottoms/////////////////////
 const btnSearch = document.getElementById("btnSearch");
+const todas = document.getElementById("todas");
+const menosV = document.getElementById("menosV");
+const masV = document.getElementById("masV");
 //
 
-// Event listeners
+
 
 // Event Search
-// btnSearch.addEventListener("click", async () => {
-//   const search = document.getElementById("movie-search").value;
-//   const data = await getData();
-//   let letterSearch = search.substring(0, 4);
-//   let getSearch = data.filter(
-//     (movie) =>
-//       movie.superhero.toLowerCase() === search.toLowerCase() ||
-//       movie.publisher.toLowerCase() === search.toLowerCase()
-//   );
-//   console.log(data);
-//   // console.log(JSON.parse(getSearch));
 
-//   //  data.forEach(movie => {
-//   //     let {
-//   //         superhero,
-//   //         name,
-//   //         publisher,
-//   //         alter_ego,
-//   //         image,
-//   //     } = movie;
-//   //     if (superhero.substring(0, 4) === letterSearch.substring(0, 4) ){
-//   //     console.log(letterSearch);
-//   // }
-//   // });
-// });
+btnSearch.addEventListener("click", async () => {
+  const search = document.getElementById('movie-search').value;
+
+  const resNew = await fetch(SEARCH_URL+search);
+  const dataNew = await resNew.json();
+  const {results} = dataNew;
+  console.log(dataNew)
+//  let filtroBusqueda = results.filter(x=>(x.title === search));
+
+ // const res = await fetch(SEARCH_URL);
+  // const data = await res.json();
+  // // const {}
+});
+
+
+
+
+
 
 
 
 function showMovies(movie) {
-  movie.forEach((movies) => {
+  movie.forEach((x) => {
     const {
       original_title,
       overview,
@@ -59,59 +58,75 @@ function showMovies(movie) {
       poster_path,
       title,
       vote_average
-    } = movies;
+    } = x;
+    // console.log(IMG_PATH);
+    // console.log(poster_path);
+    
     const info = document.createElement("div");
     info.classList.add("card");
     info.innerHTML = `
         <div class="card-content ">
        <a id="item"> <img src="${IMG_PATH + poster_path}" alt=></a>
+       <p class="estrellita" ><i class="fas fa-star"></i> <span class="voto">${vote_average}</span></p>
+          </div>
+      `;
+      principal.appendChild(info);
+
+  todas.addEventListener('click', ()=>{   
+    const info = document.createElement("div");
+    info.classList.add("card");
+    info.innerHTML = `
+        <div class="card-content ">
+       <a id="item"> <img src="${IMG_PATH + poster_path}" alt=></a>
+       <p class="estrellita"><i class="fas fa-star"></i> <span class="voto">${vote_average}</span></p>
           </div>
       `;
     principal.appendChild(info);
   });
-}
 
-const todas = document.getElementById("todas");
-const menosV = document.getElementById("menosV");
-const masV = document.getElementById("masV");
+  menosV.addEventListener('click', ()=>{
 
-menosV.addEventListener("click", async () => {
-    const res = await fetch(API_URL);
-    const data = await res.json();
-    const{results} = data;
-    const navFiltro = document.getElementById('navFiltro');
-    let filtro = results.filter(movie => (movie.vote_average < 7))
+    if(vote_average < 8){
+      // const cartel = document.getElementById('cartel');
+    const info = document.createElement("div");
+    info.classList.add("card");
+    filtroMovie.innerHTML = ""
+    filtroMovie.innerHTML +=`<p class="title">Peliculas Menos Valoradas</p>`
+    // principal.innerHTML = ""
+    info.innerHTML = `
+        <div class="card-content ">
+       <a id="item"> <img src="${IMG_PATH + poster_path}" alt=></a>
+       <p class="estrellita"> <i class="fas fa-star-half"></i> <span class="voto">${vote_average}</span></p>
+          </div>
+      `;
+    principal.appendChild(info);
+    }
+    
+  });
 
-    navFiltro.innerHTML = "";
-    navFiltro.innerHTML +=
+  masV.addEventListener('click', ()=>{
+    if(vote_average > 6){
+      // principal.innerHTML = "" 
+    const info = document.createElement("div");
+    info.classList.add("card");
+    filtroMovie.innerHTML = ""
+    filtroMovie.innerHTML +=`<p class="title">Peliculas Más Valoradas</p>`
+    // principal.innerHTML = ""
+    info.innerHTML = `
+        <div class="card-content ">
+       <a id="item"> <img src="${IMG_PATH + poster_path}" alt=></a>
+       <p class="estrellita"><i class="fas fa-star"></i> <span class="voto">${vote_average}</span></p>
+          </div>
+      `;
+    principal.appendChild(info);
+    }
+  });
+  }) // fin forEach
+}//fin funcion show movie with event listener
 
-    `  <p class="title">Menos Valoradas</p> 
-    <div id="principal"></div>
-   
-    `
-    console.log(filtro);
-})
-masV.addEventListener("click", async () => {
-    const res = await fetch(API_URL);
-    const data = await res.json();
-    const{results} = data;
-    const navFiltro = document.getElementById('navFiltro');
-    let filtro = results.filter(movie => (movie.vote_average < 7))
-
-    navFiltro.innerHTML = "";
-    navFiltro.innerHTML +=
-
-    `  <p class="title">Más Valoradas</p> 
-    <div id="principal"></div>
-   
-    `
-    console.log(filtro);
-})    
-getData(API_URL);
 
 // CRUD agregar peliculas
 const UrlAdd = 'http://localhost:4001/newMovie'
-
 const add = document.getElementById('add');
 const modal = document.querySelector('.modal');
 const bG = document.getElementById('mod');
@@ -120,17 +135,18 @@ add.addEventListener('click', (e)=>{
   e.preventDefault();
   modal.classList.add('is-active');
 })
-bG.addEventListener('click',(e)=>{
-  e.preventDefault();
+// bG.addEventListener('click',(e)=>{
+//   e.preventDefault();
   
-  modal.classList.remove('is-active');
+//   modal.classList.remove('is-active');
 
-})
-
-
+// })
 
 
 
+
+
+getData(API_URL);
 
 
 

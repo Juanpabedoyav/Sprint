@@ -1,32 +1,18 @@
 {
   "newUser": [
     {
-      "name": "opioi ",
-      "userName": "kllkk",
+      "name": "sfsadfafds",
+      "userName": "pepito el fumon",
       "email": "bedoyavascojuanpablo@gmail.com",
       "password": "null",
       "id": 1
     },
     {
-      "name": "Pedro Javier",
-      "userName": "pepito el fumon",
-      "email": "milo@gmail.com",
-      "password": "123456",
+      "name": "patp",
+      "userName": "pato",
+      "email": "patp@gmail.com",
+      "password": "13423421",
       "id": 2
-    },
-    {
-      "name": "Juan Pablo Bedoya",
-      "userName": "eldon",
-      "email": "bedoyavascojuanpablo@gmail.com",
-      "password": "123242134",
-      "id": 3
-    },
-    {
-      "name": "Juan Pablo Bedoya",
-      "userName": "pepito el fumon",
-      "email": "inversionesjbv@gmail.com",
-      "password": "kn,n,,n,m",
-      "id": 4
     }
   ]
 }

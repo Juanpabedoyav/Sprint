@@ -21,7 +21,7 @@ const getData = async () => {
 
 const showMovies = async() => {
     let data = await getData();
-    data.forEach(movies => {
+    data.forEach((movies,i) => {
         const {
             superhero,
             publisher,
@@ -36,6 +36,22 @@ const showMovies = async() => {
           </div>
       `
 principal.appendChild(info);
+
+let card = document.querySelectorAll('.card')[i];
+card.addEventListener('click', ()=>{
+const modalCard = document.querySelector('.modal-content')
+const mod = document.querySelector('.modal');
+mod.classList.add('is-active');
+const contenido = document.createElement('div')
+contenido.classList.add('conteiner');
+contenido.innerHTML= `<h1>${superhero}</h1>
+<img src="${image}" >
+`
+modalCard.append(contenido) 
+})
+
+
+
 
 
 // modal

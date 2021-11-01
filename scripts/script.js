@@ -1,6 +1,6 @@
 // conecct de API
 const API_URL =
-  "https://api.themoviedb.org/3/discover/movie?sort_by=vote_average&api_key=3fd2be6f0c70a2a598f084ddfb75487c&page=1";
+  "https://api.themoviedb.org/3/discover/movie?sort_&api_key=3fd2be6f0c70a2a598f084ddfb75487c&page=1";
 const IMG_PATH = "https://image.tmdb.org/t/p/w1280";
 const SEARCH_URL =
   'http://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query=';
@@ -39,11 +39,7 @@ e.preventDefault();
     results
   } = dataNew;
   let filtroBusqueda = results.find(x=>(x.title));
-  
 
-
-
-  
   let star = "fas fa-star";
   let filtroMovie = document.getElementById('filtroMovie')
   let  cartel = document.getElementById('cartel')
@@ -56,12 +52,6 @@ e.preventDefault();
       <p class="estrellita" ><i class="${star}"></i> <span class="voto">${filtroBusqueda.vote_average}</span></p>
       </div>
         `;
-
-      
-
-  // const res = await fetch(SEARCH_URL);
-  // const data = await res.json();
-  // // const {}
 });
 
 
@@ -72,7 +62,7 @@ e.preventDefault();
 
 
 function showMovies(movie) {
-  movie.forEach((x) => {
+  movie.forEach((x,i) => {
     const {
       original_title,
       overview,
@@ -81,7 +71,6 @@ function showMovies(movie) {
       title,
       vote_average
     } = x;
-
     // console.log(IMG_PATH);
     // console.log(poster_path);
     if (vote_average < 7) {
@@ -176,8 +165,9 @@ function showMovies(movie) {
         principal.append(info);
       }
     });
-
   }) // fin forEach
+
+ let card = document.querySelector('.card')[i];
 } //fin funcion show movie with event listener
 
 
@@ -192,7 +182,6 @@ function showMovies(movie) {
 
 
 const UrlAdd = 'http://localhost:4001/newMovie'
-
 const add = document.getElementById('add');
 const modal = document.querySelector('.modal');
 const content = document.querySelector('.modal-content');

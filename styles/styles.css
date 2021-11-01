@@ -138,20 +138,25 @@ img[src="img/logo-blockBuster.png"]{
             /* border: 1px solid red; */
 
 
-
+/* slider */
 }
 .section{
-    position: relative;
+    /* position: relat  ive; */
     height: 350px;
-    /* border: 1px solid red; */
-
+}
+.slide{
+    overflow: hidden;
+}
+.slide img{
+    margin-right: 20px;
+    margin-bottom: 5px;
 }
 .breadcrumb ol, .breadcrumb ul {
-    position: absolute;
+    position: relative;
    
-    bottom: 0;
-    right:40%;
-    left: 40%;
+    /* bottom: 0; */
+    /* right:40%; */
+    /* left: 40%; */
     
     /* display: inline-block; */
 /* border: 1px solid red; */
@@ -159,13 +164,13 @@ img[src="img/logo-blockBuster.png"]{
 .breadcrumb ol, .breadcrumb ul a p{
      height: 15px;
      width: 15px;
-     background-color: white;
+     background-color: #A7A9BE;
      border-radius: 50%;   
     /* background-color: white; */
 }
 .breadcrumb ol, .breadcrumb ul a p:hover{
    
-    background-color: #A7A9BE;
+    background-color: white;
    /* background-color: white; */
 }
 /* titulos */
@@ -173,22 +178,68 @@ img[src="img/logo-blockBuster.png"]{
     font-size: 48px;
     color:#FFFFFE;
 }
-/* modal */
-.modal-background{
-   background-color: #0c0e16d0;
+/* modal para agregar peliculas*/
+.modal-close{
+    right: 80px;
+    top: 30px;
+    font-size:2rem;
+    display: block;
+    z-index: 100;
+
+}
+.delete::after, .modal-close::after {
+    height: 30%;
+    width: 30px;
+}
+.delete::before, .modal-close::before {
+    height: 30px;
+    width: 30%;
+}
+.modal-content{
+    /* border: 1px solid green; */
+    background-color: #0c0e16;
+    border-radius: 8px;
+    width: 80%;
+    height: calc(85% -45px);
+}
+.button-modal{
+    margin-left: 10px;
 }
 
+.modal-background{
+   background-color: #0c0e16d0;
+   display: block;
+
+}
 .label{
     font-size: 1.4rem;
     text-align: left;
     color:white;
 }
-/* boton modal */
+/* contenido del modal de peliculas */
+.form{
+padding:40px;
+}
+#buscaquedaPeli{
+    margin-bottom: 10px;
+}
+.button-modal--buscar{
+margin-bottom: 20px;
+}
+.input::placeholder{
+color: var(--text-input);
+font-weight: 700;
+}
+.textarea::placeholder{
+    color: var(--text-input);
+    font-weight: 700;  
+}
+/* boton modal  para agregar peliculas*/
 #add{
     background-color: #FED941;
     border: none;
     margin: 0px 0px 50px 0px;
-    margin-top: 20px;
+    margin-top: 80px;
     display: block;
     width: 180px;
     border-radius: 8px;
@@ -247,7 +298,10 @@ img[src="img/logo-blockBuster.png"]{
 text-transform: uppercase;
 background-color: var(--background-color);
 color: var(--text-hover);
-    border:1px solid var(--text-hover);
+border:1px solid var(--text-hover);
+position: relative;
+bottom: 140px;
+left:280px;
 }
 .button--despues:hover{
     background-color: none;
@@ -271,6 +325,9 @@ color: var(--text-hover);
     text-transform: uppercase;
     background-color:var(--text-hover);
     color: var(--background-color); 
+    position: relative;
+bottom: 100px;
+left:50px;
 }
 .button--ahora:hover{
    background-color:var(--text-hover);

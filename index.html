@@ -21,11 +21,11 @@
           <img src="img/logo-blockBuster.png">
           </a>
 
-          <a role="button" class="navbar-burger " aria-label="menu" aria-expanded="false">
+      <a role="button" class="navbar-burger " aria-label="menu" aria-expanded="true">
             <span aria-hidden=""></span>
             <span aria-hidden=""></span>
             <span aria-hidden=""></span>
-          </a>
+          </a> 
         </div>
 
         <div class="navbar-menu">
@@ -69,21 +69,28 @@
   </header>
   <section class="section ">
     <!-- barra de navegacion -->
+    <div class="container slide">
     <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+      <img id="mulan"src="img/slides/mulan.png" alt="">
+      <img id="raya"src="img/slides/raya.png" alt="">
+      <img id="unidos"src="img/slides/unidos.png" alt="">
       <ul>
-        <li><a href="#"><p ></p></a></li>
-        <li><a href="#"><p ></p></a></li>
-        <li><a href="#"><p ></p></a></li>
+        <li><a href="#mulan"><p ></p></a></li>
+        <li><a href="#raya"><p ></p></a></li>
+        <li><a href="#unidos"><p ></p></a></li>
         <!-- <li class="is-active"><a href="#" aria-current="page">Breadcrumb</a></li> -->
       </ul>
-    </nav>
     
-    <a class="button button--ahora" href="signup.html">
+    </nav>
+    <a class="button button--ahora" href="">
       <strong>ver ahora</strong>
     </a>
-    <a class="button button--despues " href="signup.html">
+    <a class="button button--despues " href="">
       <strong>ver después</strong>
     </a>
+  </div>
+   
+   
   </section>
 
 
@@ -98,39 +105,64 @@
           <div id="crud">
             <!-- formulario de registro -->
             <form class="form">
+           
+              <div class="control">
+                <input id="buscaquedaPeli" class="input" type="text" placeholder="Busca la pelicula por nombre">
+                <a id="btnPeli" class="button button-modal button-modal--buscar" href="">Buscar</a>
+
+              </div>
+           
+
+          <div class="field is-horizontal">  
+            <div class="field-body">
               <div class="field">
                 <label class="label">Nombre de pelicula</label>
                 <div class="control">
-                  <input id="nombre" class="input" type="text" placeholder="Ingresa el nombre de la pelicula">
+                  <input id="nombre-pelicula" class="input" type="text" placeholder="Ingresa el nombre de la pelicula">
                 </div>
               </div>
               <div class="field">
-                <label class="label">Actores</label>
+                <label class="label">Fecha de Pelicula</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="e.g Alex Smith">
+                  <input  id="release_date"class="input" type="text" placeholder="Ingresa la fecha de creación de la pelicula">
+                </div>
+              </div>
+            </div>
+          </div> 
+          <div class="field is-horizontal"> 
+            <div class="field-body">
+              <div class="field">
+                <label class="label">Calificación</label>
+                <div class="control">
+                  <input  id="vote_average"class="input" type="text" placeholder="Ingresa la calificación">
                 </div>
               </div>
               <div class="field">
-                <label class="label">Personajes</label>
+                <label class="label">URL Imagen</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="e.g Alex Smith">
+                  <input id="url-imagen"class="input" type="text" placeholder="Ingresa los personajes de la pelicula">
                 </div>
               </div>
+            </div>
+          </div>  
               <div class="field">
                 <label class="label">Descripción</label>
                 <div class="control">
-                  <input class="textarea" type="text" row="2" placeholder="Escribe la sinopsis">
+                  <input id="descripcion"class="textarea" type="text" row="2" placeholder="Escribe la sinopsis">
                 </div>
               </div>
-              <a class="button" href="">Agregar</a>
-              <a class="button" href="">Eliminar</a>
-              <a class="button" href="">Editar</a>
-              <a class="button" href="">Editar</a>
+              <div class="field is-horizontal" >
+              <div class="field-body btns">
+              <a id="btnAgg"class="button button-modal ">Agregar</a>
+              <a id="btnDelete"class="button button-modal" href="">Eliminar</a>
+              <a id="btnEdit"class="button button-modal" href="">Editar</a>
+            </div>
+          </div>
             </form>
           </div>
 
         </div>
-        <button class="modal-close   " aria-label="close"></button>
+        <button class="modal-close"></button>
     </button>
   </div>
   </div>

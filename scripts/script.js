@@ -9,6 +9,7 @@ const SEARCH_URL =
 const principal = document.getElementById("principal");
 const filtroMovie = document.getElementById('filtroMovie');
 const cartel = document.querySelector('#cartel');
+
 // get data
 const getData = async (url) => {
   const res = await fetch(url);
@@ -20,16 +21,11 @@ const getData = async (url) => {
 };
 
 // bottoms/////////////////////
-const btnSearch = document.getElementById("btnSearch");
-const todas = document.getElementById("todas");
-const menosV = document.getElementById("menosV");
-const masV = document.getElementById("masV");
+const btnSearch = document.getElementById('btnSearch');
+const todas = document.getElementById('todas');
+const menosV = document.getElementById('menosV');
+const masV = document.getElementById('masV');
 //
-
-
-
-// Event Search
-
 btnSearch.addEventListener("click", async (e) => {
 e.preventDefault();
   const search = document.getElementById('movie-search').value;
@@ -52,9 +48,34 @@ e.preventDefault();
       <p class="estrellita" ><i class="${star}"></i> <span class="voto">${filtroBusqueda.vote_average}</span></p>
       </div>
         `;
+
 });
-
-
+// funcionalidad de slider bar
+function slideBar(){
+const img = document.getElementsByClassName('img-slide');
+const mover1 = document.getElementById('mover1');
+const mover2 = document.getElementById('mover2');
+const mover3 = document.getElementById('mover3');
+mover1.addEventListener('click', (e)=>{
+  e.preventDefault();
+img[0].setAttribute('style', 'transform: translateX(0px)');
+img[1].setAttribute('style', 'transform: translateX(0px)');
+img[2].setAttribute('style', 'transform: translateX(0px)');
+})
+mover2.addEventListener('click', (e)=>{
+  e.preventDefault();
+img[0].setAttribute('style', 'transform: translateX(-1230px)');
+img[1].setAttribute('style', 'transform: translateX(-1230px)');
+img[2].setAttribute('style', 'transform: translateX(-1230px)');
+})
+mover3.addEventListener('click', (e)=>{
+  e.preventDefault();
+img[0].setAttribute('style', 'transform: translateX(-1230px)');
+img[1].setAttribute('style', 'transform: translateX(-2460px)');
+img[2].setAttribute('style', 'transform: translateX(-2460px)');
+})
+}
+slideBar();
 
 
 
@@ -71,8 +92,11 @@ function showMovies(movie) {
       title,
       vote_average
     } = x;
-    // console.log(IMG_PATH);
-    // console.log(poster_path);
+
+
+
+
+    
     if (vote_average < 7) {
       let star = "fas fa-star-half";
       const info = document.createElement("div");
@@ -165,9 +189,48 @@ function showMovies(movie) {
         principal.append(info);
       }
     });
-  }) // fin forEach
 
- let card = document.querySelector('.card')[i];
+    // function modal () {
+    let card = document.querySelectorAll('.card')[i];
+    card.addEventListener('click', ()=>{
+      let star = "fas fa-star";
+      if(vote_average < 7){
+        star = "fas fa-star-half"
+    }
+   
+    let modal = document.querySelector('.modal');
+    modal.classList.add('is-active');
+    let modalBackground=document.querySelector('.modal-background');
+    let modalContent=document.querySelector('.modal-content');
+    let modalClose = document.querySelector('.modal-close');
+    const caja = document.createElement('div');
+    caja.classList.add('container')
+    caja.classList.add('container__movies')
+    caja.innerHTML= `
+    <div class="modal__image">
+    <div class="card-content imagen--modal ">
+    <img src="${IMG_PATH + poster_path}">
+    <p class="estrellita" ><i class="${star}"></i> <span class="voto">${vote_average}</span></p>
+    </div>
+    </div>
+    <div class="container info__modal">
+        <h3 class="title">${title}</h3>
+        <p>${overview}</p>
+        <a class="button button__card button__card-ver-aho" href="">
+        <strong> ▶  ver ahora</strong>
+        </a>
+        <a id="despuesito"class="button button__card button__card-ver-des" href="">
+        <strong> + ver después</strong>
+        </a>
+    </div>  
+    `    
+    modalClose.style.display= "block"
+        modalContent.innerHTML= "";
+        modalContent.append(caja);
+    });
+  
+
+  }) // fin forEach
 } //fin funcion show movie with event listener
 
 
@@ -186,15 +249,15 @@ const add = document.getElementById('add');
 const modal = document.querySelector('.modal');
 const content = document.querySelector('.modal-content');
 const modalClose = document.querySelector('.modal-close');
+const crud = document.querySelector('#crud');
+const formRegistro =document.querySelector('#form')
+console.log(formRegistro)
 modalClose.style.display = " none";
 
-// b[].addEventListener('click', (e)=>{
-  // e.preventDefault();
-  // modal.classList.add('is-active');
-  
-// })
 add.addEventListener('click', (e) => {
   e.preventDefault();
+ 
+ 
   modal.classList.add('is-active');
   modalClose.style.display = "inline";
 
@@ -307,8 +370,13 @@ guardarCambios.addEventListener('click', async (e)=>{
 
 }),//fin de btnBuscarPelicula
 
-// etiqueta = document.getElementsByClassName('.card-content');
-// etiqueta.addEventListener('click', ()=>{
-//   console.log("hola")
-// })
+
+
+
+  //
+  // <li><a href="#raya"><p ></p></a></li>
+  // <li><a href="#unidos"><p ></p></a></li>
+
+
+
 getData(API_URL);

@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 :root{
     --background-color: #0F0E17;
     --text-hover:#FED941; 
     --text-input:#A7A9BE;
+}
+*, ::after, ::before {
+    box-sizing: inherit;
+    text-align: left;
 }
 html{
     background-color: var(--background-color);
@@ -83,7 +86,7 @@ img[src="img/logo-blockBuster.png"]{
 }
 .box-search button{
     background-color: var(--text-hover);
-    width: 72px;
+    width: 50px;
     height: 34px;
     border-radius: 0px 8px 8px 0px;
     border:none;
@@ -147,10 +150,15 @@ img[src="img/logo-blockBuster.png"]{
 .slide{
     overflow: hidden;
 }
-.slide img{
+.img-slide{
     margin-right: 20px;
     margin-bottom: 5px;
 }
+/* .img-move{
+    margin-right: 20px;
+    margin-bottom: 5px;
+    transform: translateX(-1230px);
+} */
 .breadcrumb ol, .breadcrumb ul {
     position: relative;
    
@@ -336,7 +344,72 @@ left:50px;
 .button--ahora::before{
     content: " ▶ ";
    }
-   
+/* modal de cada pelicula */
 
+.modal__image{
+ width: 400px;
+ /* height: 243px; */
+ /* border: 1px solid red; */
+}
+.imagen--modal{
+  position: relative;
+  top:70px;
+  left: 80px;
+  /* rotition: 30deg; */
+  transform:rotate3d(0.8, 0.3, .5, -70deg);
+  box-shadow: 2px 2px 20px 0px rgba(255, 255, 255, 0.7);
 
+  
+   }
+.container__movies{
+    display: flex;
+    flex-direction: row;
+    height:579px;
+    /* padding: ; */
+    /* border: 1px solid red; */
 
+}
+.info__modal{
+    width: 400px;
+    padding: 40px;
+    /* margin-top:80px; */
+    /* height: 243px; */
+    /* border: 1px solid yellow; */
+}
+.info__modal>p{
+    display: inline;
+    color:white;
+    height: 500px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    white-space:normal;
+}
+.info__modal>h3{
+    text-align: left;
+    margin-top: 30px;
+    white-space:normal;
+    /* overflow: scroll; */
+/* font-size: 48px; */
+}
+/* botones de cardpelis */
+.button__card-ver-aho{
+    position:relative;
+    text-transform: uppercase;
+    top: 50px;
+}
+.button__card-ver-des{
+    text-transform: uppercase;
+    left: 220px;
+    top:10px;
+}
+#despuesito{
+    background-color:var(--background-color);
+    color:var(--text-hover);
+    border: 1px solid var(--text-hover);
+
+}
+#despuesito:hover{
+    background-color:var(--text-hover);
+    color:var(--background-color);
+
+}

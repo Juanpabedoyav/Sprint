@@ -69,15 +69,15 @@
   </header>
   <section class="section ">
     <!-- barra de navegacion -->
-    <div class="container slide">
+    <div class="container slide move">
     <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
-      <img id="mulan"src="img/slides/mulan.png" alt="">
-      <img id="raya"src="img/slides/raya.png" alt="">
-      <img id="unidos"src="img/slides/unidos.png" alt="">
+      <img id="mulan"class="img-slide"  src="img/slides/mulan.png" alt="">
+      <img id="raya"class="img-slide"  src="img/slides/raya.png" alt="">
+      <img id="unidos"class="img-slide" src="img/slides/unidos.png" alt="">
       <ul>
-        <li><a href="#mulan"><p ></p></a></li>
-        <li><a href="#raya"><p ></p></a></li>
-        <li><a href="#unidos"><p ></p></a></li>
+        <li><a id="mover1"href=""><p></p></a></li>
+        <li><a id="mover2"href="#raya"><p ></p></a></li>
+        <li><a id="mover3"href="#unidos"><p ></p></a></li>
         <!-- <li class="is-active"><a href="#" aria-current="page">Breadcrumb</a></li> -->
       </ul>
     
@@ -104,16 +104,16 @@
         <div class="modal-content">
           <div id="crud">
             <!-- formulario de registro -->
-            <form class="form">
+            <form id="form" class="form">
            
               <div class="control">
                 <input id="buscaquedaPeli" class="input" type="text" placeholder="Busca la pelicula por nombre">
                 <a id="btnPeli" class="button button-modal button-modal--buscar" href="">Buscar</a>
-
+            
               </div>
-           
-
-          <div class="field is-horizontal">  
+            
+            
+            <div class="field is-horizontal">  
             <div class="field-body">
               <div class="field">
                 <label class="label">Nombre de pelicula</label>
@@ -128,8 +128,8 @@
                 </div>
               </div>
             </div>
-          </div> 
-          <div class="field is-horizontal"> 
+            </div> 
+            <div class="field is-horizontal"> 
             <div class="field-body">
               <div class="field">
                 <label class="label">Calificación</label>
@@ -144,7 +144,7 @@
                 </div>
               </div>
             </div>
-          </div>  
+            </div>  
               <div class="field">
                 <label class="label">Descripción</label>
                 <div class="control">
@@ -157,7 +157,7 @@
               <a id="btnDelete"class="button button-modal" href="">Eliminar</a>
               <a id="btnEdit"class="button button-modal" href="">Editar</a>
             </div>
-          </div>
+            </div>
             </form>
           </div>
 

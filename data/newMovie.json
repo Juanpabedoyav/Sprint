@@ -1,4 +1,4 @@
-{                       
+{
   "newMovie": [
     {
       "overview": "The Lord of the Rings trilogy consists of three epic fantasy films, based on the influential novels written by J. R. R. Tolkien, directed by Peter Jackson.",
@@ -6,7 +6,7 @@
       "title": "The Lord of the Rings Collection",
       "release_date": "2002-09-17",
       "vote_average": "6",
-      "id": 4
+      "id": 1
     }
   ]
 }

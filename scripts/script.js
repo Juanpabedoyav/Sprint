@@ -23,18 +23,29 @@ const getData = async (url) => {
   console.log(data.results)
 
 };
+const load = document.querySelector('.load')
+
 window.addEventListener('scroll',async()=>{
-  for (let i = 2; i < 8; i++) {
+  
   
   
   const{scrollTop, scrollHeight, clientHeight }= document.documentElement;
-  if(scrollTop + clientHeight >= scrollHeight  ){
-  getData(API_URL+Math.ceil((1)+i))
-  }
-// console.log(Math.ceil((1)+i));
-}
-})
+  if(scrollTop + clientHeight >= scrollHeight - 1 ){
+  load.classList.add('animacion'); 
+  setTimeout(preloader(),8000); 
 
+  }
+
+
+
+})
+function preloader(){
+  for (let i = 2; i <= 10; i++) {
+  
+  load.classList.add('animacion')
+ setTimeout( getData(API_URL+`${[i]}`),8000);
+}
+}
   
   
   //   getData(API_URL+"2");
@@ -71,12 +82,11 @@ e.preventDefault();
   principal.innerHTML=""
    getData(SEARCH_URL + search);
   let filtroMovie = document.getElementById('filtroMovie')
-  filtroMovie.innerHTML = "";
-  filtroMovie.innerHTML += ` <p class="title">Resultados de búsqueda "${search}"</p> `;
-if(search == "" || SEARCH_URL + search !== true){
-  filtroMovie.innerHTML = "";
   principal.innerHTML=""
-  principal.innerHTML=`<img class= "noEncontrado"src="img/Stuck at Home Searching.png">
+if(search == "" || !(SEARCH_URL + search)){
+  filtroMovie.innerHTML = "";
+  principal.innerHTML=`
+  <img class= "noEncontrado"src="img/Stuck at Home Searching.png">
   <p class="title title-search">No se encontraron resultados para ${search}</p>
   `
   console.log("no se encuentra")
@@ -232,6 +242,9 @@ function showMovies(movie) {
     //modalfuncion
     function modales () {
         let card = document.querySelectorAll('.card')[i];
+         
+         
+     
         card.addEventListener('click', ()=>{
           let star = "fas fa-star";
           if(vote_average < 7){
@@ -269,6 +282,7 @@ function showMovies(movie) {
             modalContent.append(caja);
         });
         }
+      
     modales();
   }) // fin forEach
 } //fin funcion show movie with event listener

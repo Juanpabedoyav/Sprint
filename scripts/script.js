@@ -1,7 +1,8 @@
 // conecct de API
 const API_URL =
-  "https://api.themoviedb.org/3/discover/movie?sort_&api_key=3fd2be6f0c70a2a598f084ddfb75487c&page=1";
-const IMG_PATH = "https://image.tmdb.org/t/p/w1280";
+  "https://api.themoviedb.org/3/discover/movie?sort_&api_key=3fd2be6f0c70a2a598f084ddfb75487c&page=";
+ 
+  const IMG_PATH = "https://image.tmdb.org/t/p/w1280";
 const SEARCH_URL =
   'http://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query=';
 
@@ -15,40 +16,71 @@ const getData = async (url) => {
   const res = await fetch(url);
   const data = await res.json();
   const {
+    page,
     results
   } = data;
   showMovies(data.results);
+  console.log(data.results)
+
 };
+window.addEventListener('scroll',async()=>{
+  for (let i = 2; i < 8; i++) {
+  
+  
+  const{scrollTop, scrollHeight, clientHeight }= document.documentElement;
+  if(scrollTop + clientHeight >= scrollHeight  ){
+  getData(API_URL+Math.ceil((1)+i))
+  }
+// console.log(Math.ceil((1)+i));
+}
+})
+
+  
+  
+  //   getData(API_URL+"2");
+  //  if (scrollTop + clientHeight >= scrollHeight -100){
+  //     getData(API_URL+"3");
+
+  //   }
+  //   if (scrollTop + clientHeight >= scrollHeight -100){
+  //     getData(API_URL+"4");
+
+  //   }
+  //       if (scrollTop + clientHeight >= scrollHeight -100){
+  //     getData(API_URL+"5");
+
+  //   }
+  // }
+// });
 
 // bottoms/////////////////////
+
+
+
+// filtros de barra de busqueda de pelicula
 const btnSearch = document.getElementById('btnSearch');
 const todas = document.getElementById('todas');
 const menosV = document.getElementById('menosV');
 const masV = document.getElementById('masV');
-//
-btnSearch.addEventListener("click", async (e) => {
+
+btnSearch.addEventListener("click",  (e) => {
 e.preventDefault();
   const search = document.getElementById('movie-search').value;
-  const resNew = await fetch(SEARCH_URL + search);
-  const dataNew = await resNew.json();
-  const {
-    results
-  } = dataNew;
-  let filtroBusqueda = results.find(x=>(x.title));
+  // principal.innerHTML=""
 
-  let star = "fas fa-star";
+  principal.innerHTML=""
+   getData(SEARCH_URL + search);
   let filtroMovie = document.getElementById('filtroMovie')
-  let  cartel = document.getElementById('cartel')
-   cartel.innerHTML = " "; 
   filtroMovie.innerHTML = "";
   filtroMovie.innerHTML += ` <p class="title">Resultados de búsqueda "${search}"</p> `;
-  cartel.innerHTML =
-`     <div class="card-content ">
-      <a class="item"> <img src="${IMG_PATH + filtroBusqueda.poster_path}" alt=></a>
-      <p class="estrellita" ><i class="${star}"></i> <span class="voto">${filtroBusqueda.vote_average}</span></p>
-      </div>
-        `;
-
+if(search == "" || SEARCH_URL + search !== true){
+  filtroMovie.innerHTML = "";
+  principal.innerHTML=""
+  principal.innerHTML=`<img class= "noEncontrado"src="img/Stuck at Home Searching.png">
+  <p class="title title-search">No se encontraron resultados para ${search}</p>
+  `
+  console.log("no se encuentra")
+}
 });
 // funcionalidad de slider bar
 function slideBar(){
@@ -83,7 +115,9 @@ slideBar();
 
 
 function showMovies(movie) {
-  movie.forEach((x,i) => {
+
+ 
+    movie.forEach((x,i) => {
     const {
       original_title,
       overview,
@@ -91,12 +125,10 @@ function showMovies(movie) {
       poster_path,
       title,
       vote_average
-    } = x;
+    } = x;  
+  
+    //    console.log(Math.floor(Math.random()))
 
-
-
-
-    
     if (vote_average < 7) {
       let star = "fas fa-star-half";
       const info = document.createElement("div");
@@ -121,23 +153,29 @@ function showMovies(movie) {
       principal.appendChild(info);
     }
  
-
+    const principal1= document.getElementById('principal1');
     todas.addEventListener('click', () => {
-      // let cardContent = document.querySelector('#cartel')
+      // const principal1= document.getElementById('principal1');
+      principal.innerHTML=""
+
       if (vote_average < 7) {
+
         let star = "fas fa-star-half";
         const info = document.createElement("div");
         info.classList.add("card");
+        filtroMovie.innerHTML = ""
+        filtroMovie.innerHTML += `<p class="title">Todas las peliculas </p>`
                 info.innerHTML = `
           <div class="card-content ">
          <a id="item"> <img src="${IMG_PATH + poster_path}" alt=></a>
          <p class="estrellita"><i class="${star}"></i> <span class="voto">${vote_average}</span></p>
             </div>
         `;
-
-        principal.append(info);
+        principal1.append(info);
 
       } else {
+        principal.innerHTML=""
+
         let star = "fas fa-star";
         const info = document.createElement("div");
         info.classList.add("card");
@@ -148,12 +186,12 @@ function showMovies(movie) {
           </div>
       `;
 
-        principal.append(info);
+        principal1.append(info);
       }
     });
 
     menosV.addEventListener('click', () => {
-
+      principal.innerHTML=""
       if (vote_average < 7) {
         // const cartel = document.getElementById('cartel');
         const info = document.createElement("div");
@@ -167,12 +205,13 @@ function showMovies(movie) {
        <p class="estrellita"> <i class="fas fa-star-half"></i> <span class="voto">${vote_average}</span></p>
           </div>
       `;
-        principal.append(info);
+        principal1.append(info);
       }
 
     });
 
     masV.addEventListener('click', () => {
+      principal.innerHTML=""
       if (vote_average > 7) {
         // principal.innerHTML = "" 
         const info = document.createElement("div");
@@ -186,50 +225,51 @@ function showMovies(movie) {
        <p class="estrellita"><i class="fas fa-star"></i> <span class="voto">${vote_average}</span></p>
           </div>
       `;
-        principal.append(info);
+        principal1.append(info);
       }
     });
 
-    // function modal () {
-    let card = document.querySelectorAll('.card')[i];
-    card.addEventListener('click', ()=>{
-      let star = "fas fa-star";
-      if(vote_average < 7){
-        star = "fas fa-star-half"
-    }
-   
-    let modal = document.querySelector('.modal');
-    modal.classList.add('is-active');
-    let modalBackground=document.querySelector('.modal-background');
-    let modalContent=document.querySelector('.modal-content');
-    let modalClose = document.querySelector('.modal-close');
-    const caja = document.createElement('div');
-    caja.classList.add('container')
-    caja.classList.add('container__movies')
-    caja.innerHTML= `
-    <div class="modal__image">
-    <div class="card-content imagen--modal ">
-    <img src="${IMG_PATH + poster_path}">
-    <p class="estrellita" ><i class="${star}"></i> <span class="voto">${vote_average}</span></p>
-    </div>
-    </div>
-    <div class="container info__modal">
-        <h3 class="title">${title}</h3>
-        <p>${overview}</p>
-        <a class="button button__card button__card-ver-aho" href="">
-        <strong> ▶  ver ahora</strong>
-        </a>
-        <a id="despuesito"class="button button__card button__card-ver-des" href="">
-        <strong> + ver después</strong>
-        </a>
-    </div>  
-    `    
-    modalClose.style.display= "block"
-        modalContent.innerHTML= "";
-        modalContent.append(caja);
-    });
-  
-
+    //modalfuncion
+    function modales () {
+        let card = document.querySelectorAll('.card')[i];
+        card.addEventListener('click', ()=>{
+          let star = "fas fa-star";
+          if(vote_average < 7){
+            star = "fas fa-star-half"
+        }
+       
+        let modal = document.querySelector('.modal');
+        modal.classList.add('is-active');
+        let modalBackground=document.querySelector('.modal-background');
+        let modalContent=document.querySelector('.modal-content');
+        let modalClose = document.querySelector('.modal-close');
+        const caja = document.createElement('div');
+        caja.classList.add('container')
+        caja.classList.add('container__movies')
+        caja.innerHTML= `
+        <div class="modal__image">
+        <div class="card-content imagen--modal ">
+        <img src="${IMG_PATH + poster_path}">
+        <p class="estrellita" ><i class="${star}"></i> <span class="voto">${vote_average}</span></p>
+        </div>
+        </div>
+        <div class="container info__modal">
+            <h3 class="title">${title}</h3>
+            <p>${overview}</p>
+            <a class="button button__card button__card-ver-aho" href="">
+            <strong> ▶  ver ahora</strong>
+            </a>
+            <a id="despuesito"class="button button__card button__card-ver-des" href="">
+            <strong> + ver después</strong>
+            </a>
+        </div>  
+        `    
+        modalClose.style.display= "block"
+            modalContent.innerHTML= "";
+            modalContent.append(caja);
+        });
+        }
+    modales();
   }) // fin forEach
 } //fin funcion show movie with event listener
 
@@ -244,7 +284,7 @@ function showMovies(movie) {
 
 
 
-const UrlAdd = 'http://localhost:4001/newMovie'
+const UrlAdd = '  '
 const add = document.getElementById('add');
 const modal = document.querySelector('.modal');
 const content = document.querySelector('.modal-content');

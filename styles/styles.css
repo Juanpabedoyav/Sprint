@@ -153,6 +153,7 @@ img[src="img/logo-blockBuster.png"]{
 .img-slide{
     margin-right: 20px;
     margin-bottom: 5px;
+    transition: 1.5s;
 }
 /* .img-move{
     margin-right: 20px;
@@ -412,4 +413,14 @@ left:50px;
     background-color:var(--text-hover);
     color:var(--background-color);
 
+}
+/* no encontrado */
+.noEncontrado{
+    position: relative;
+    top:5px;
+    left: 33%;
+    /* border: 1px solid red */
+}
+.title-search{
+text-align: center;
 }
